@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def tvs
+    subscriptions.map(&:resource)
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
