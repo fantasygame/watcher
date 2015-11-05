@@ -1,29 +1,29 @@
 / Navigation
-%a#menu-toggle.btn.btn-dark.btn-lg.toggle{:href => "#"}
+%a#menu-toggle.btn.btn-dark.btn-lg.toggle{href: "#"}
   %i.fa.fa-bars
 %nav#sidebar-wrapper
   %ul.sidebar-nav
-    %a#menu-close.btn.btn-light.btn-lg.pull-right.toggle{:href => "#"}
+    %a#menu-close.btn.btn-light.btn-lg.pull-right.toggle{href: "#"}
       %i.fa.fa-times
     %li.sidebar-brand
-      %a{:href => "#top", :onclick => "$(\"#menu-close\").click();"} Start Bootstrap
+      %a{href: "#top", onclick: "$(\"#menu-close\").click();"} Start Bootstrap
     %li
-      %a{:href => "#top", :onclick => "$(\"#menu-close\").click();"} Home
+      %a{href: "#top", onclick: "$(\"#menu-close\").click();"} Home
     %li
-      %a{:href => "#about", :onclick => "$(\"#menu-close\").click();"} About
+      %a{href: "#about", onclick: "$(\"#menu-close\").click();"} About
     %li
-      %a{:href => "#services", :onclick => "$(\"#menu-close\").click();"} Services
+      %a{href: "#services", onclick: "$(\"#menu-close\").click();"} Services
     %li
-      %a{:href => "#portfolio", :onclick => "$(\"#menu-close\").click();"} Portfolio
+      %a{href: "#portfolio", onclick: "$(\"#menu-close\").click();"} Portfolio
     %li
-      %a{:href => "#contact", :onclick => "$(\"#menu-close\").click();"} Contact
+      %a{href: "#contact", onclick: "$(\"#menu-close\").click();"} Contact
 / Header
 %header#top.header
   .text-vertical-center
     %h1 Start Bootstrap
     %h3 Free Bootstrap Themes &amp; Templates
     %br
-      %a.btn.btn-dark.btn-lg{:href => "#about"} Find Out More
+      %a.btn.btn-dark.btn-lg{href: "#about"} Find Out More
 / About
 %section#about.about
   .container
@@ -33,7 +33,7 @@
         %p.lead
           This theme features some wonderful photography courtesy of
           = succeed "." do
-            %a{:href => "http://join.deathtothestockphoto.com/", :target => "_blank"} Death to the Stock Photo
+            %a{href: "http://join.deathtothestockphoto.com/", target: "_blank"} Death to the Stock Photo
     / /.row
   / /.container
 / Services
@@ -53,7 +53,7 @@
                 %h4
                   %strong Service Name
                 %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                %a.btn.btn-light{:href => "#"} Learn More
+                %a.btn.btn-light{href: "#"} Learn More
             .col-md-3.col-sm-6
               .service-item
                 %span.fa-stack.fa-4x
@@ -62,7 +62,7 @@
                 %h4
                   %strong Service Name
                 %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                %a.btn.btn-light{:href => "#"} Learn More
+                %a.btn.btn-light{href: "#"} Learn More
             .col-md-3.col-sm-6
               .service-item
                 %span.fa-stack.fa-4x
@@ -71,7 +71,7 @@
                 %h4
                   %strong Service Name
                 %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                %a.btn.btn-light{:href => "#"} Learn More
+                %a.btn.btn-light{href: "#"} Learn More
             .col-md-3.col-sm-6
               .service-item
                 %span.fa-stack.fa-4x
@@ -80,7 +80,7 @@
                 %h4
                   %strong Service Name
                 %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                %a.btn.btn-light{:href => "#"} Learn More
+                %a.btn.btn-light{href: "#"} Learn More
           / /.row (nested)
       / /.col-lg-10
     / /.row
@@ -99,22 +99,22 @@
           .row
             .col-md-6
               .portfolio-item
-                %a{:href => "#"}
-                  %img.img-portfolio.img-responsive{:src => "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-1.jpg"}
+                %a{href: "#"}
+                  %img.img-portfolio.img-responsive{src: "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-1.jpg"}
             .col-md-6
               .portfolio-item
-                %a{:href => "#"}
-                  %img.img-portfolio.img-responsive{:src => "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-2.jpg"}
+                %a{href: "#"}
+                  %img.img-portfolio.img-responsive{src: "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-2.jpg"}
             .col-md-6
               .portfolio-item
-                %a{:href => "#"}
-                  %img.img-portfolio.img-responsive{:src => "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-3.jpg"}
+                %a{href: "#"}
+                  %img.img-portfolio.img-responsive{src: "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-3.jpg"}
             .col-md-6
               .portfolio-item
-                %a{:href => "#"}
-                  %img.img-portfolio.img-responsive{:src => "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg"}
+                %a{href: "#"}
+                  %img.img-portfolio.img-responsive{src: "http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg"}
           / /.row (nested)
-          %a.btn.btn-dark{:href => "#"} View More Items
+          %a.btn.btn-dark{href: "#"} View More Items
       / /.col-lg-10
     / /.row
   / /.container
@@ -124,8 +124,8 @@
     .row
       .col-lg-12.text-center
         %h3 The buttons below are impossible to resist.
-        %a.btn.btn-lg.btn-light{:href => "#"} Click Me!
-        %a.btn.btn-lg.btn-dark{:href => "#"} Look at Me!
+        %a.btn.btn-lg.btn-light{href: "#"} Click Me!
+        %a.btn.btn-lg.btn-dark{href: "#"} Look at Me!
 / Footer
 %footer
   .container
@@ -142,17 +142,17 @@
             (123) 456-7890
           %li
             %i.fa.fa-envelope-o.fa-fw
-            %a{:href => "mailto:name@example.com"} name@example.com
+            %a{href: "mailto:name@example.com"} name@example.com
         %br
           %ul.list-inline
             %li
-              %a{:href => "#"}
+              %a{href: "#"}
                 %i.fa.fa-facebook.fa-fw.fa-3x
             %li
-              %a{:href => "#"}
+              %a{href: "#"}
                 %i.fa.fa-twitter.fa-fw.fa-3x
             %li
-              %a{:href => "#"}
+              %a{href: "#"}
                 %i.fa.fa-dribbble.fa-fw.fa-3x
           %hr.small
             %p.text-muted Copyright &copy; Your Website 2014
