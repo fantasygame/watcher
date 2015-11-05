@@ -1,2 +1,2 @@
 - @results.each do |result|
-  %p= result['original_name']
+  %p= link_to result['original_name'], subscriptions_path(resource_id: result['id']), method: :post
