@@ -1,3 +1,6 @@
 .search-form
   = simple_form_for(:search, url: tvs_path, method: :get) do |f|
-    = f.input :name, label: false, placeholder: 'Search for tv series', input_html: { class: 'search-input' }
+    = f.input :name, label: false, wrapper_html: {class: 'form-inline'} do
+      = f.input_field :name, label: false, placeholder: 'Search for tv series', class: 'search-input form-control'
+      = f.button :button do
+        %i.fa.fa-search.text-primary
