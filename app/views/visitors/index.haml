@@ -23,7 +23,7 @@
     %h1 Start Bootstrap
     %h3 Free Bootstrap Themes &amp; Templates
     %br
-      -unless @user.present?
+      -unless user_signed_in?
         %a.btn.btn-dark.btn-lg{href: "/signin"} Sign in
 / About
 %section#about.about
