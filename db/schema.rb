@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105212536) do
+ActiveRecord::Schema.define(version: 20151106225115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,5 +35,16 @@ ActiveRecord::Schema.define(version: 20151105212536) do
     t.string   "email"
   end
 
+  create_table "views", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tv_id"
+    t.integer  "episode_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "views", ["user_id"], name: "index_views_on_user_id", using: :btree
+
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "views", "users"
 end
