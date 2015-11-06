@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_current_user_subscription?(resource_id)
+  def subscribed?(resource_id)
     subscriptions.map(&:resource_id).include?(resource_id)
   end
 end

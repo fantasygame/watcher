@@ -9,7 +9,7 @@
           .col-md-4
             %h2= @tv.original_name
           .col-ms-2.tv_show_resource_button
-            -if current_user.is_current_user_subscription?(@tv.id)
+            -if current_user.subscribed?(@tv.id)
               = link_to 'Remove resource', subscription_path(@tv.id), method: :delete, class: 'btn btn-default'
             -else
               = link_to 'Add resource', subscriptions_path(resource_id: @tv.id), method: :post, class: 'btn btn-default'
