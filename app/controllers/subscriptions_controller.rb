@@ -10,10 +10,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def index
-    tvs = []
-    current_user.subscriptions.each do |subscription|
-      tvs = TvInfo.new(id: subscription.resource_id).call
-    end
+    @tvs = current_user.tvs
   end
 
   def destroy
