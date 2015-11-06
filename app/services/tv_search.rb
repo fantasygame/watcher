@@ -10,6 +10,6 @@ class TvSearch
     search.resource('tv')
     search.query(name)
     results = search.fetch
-    results.map { |result| Tv.find(result['id']) }
+    results.map { |result| Tv.build(result) }
   end
 end
