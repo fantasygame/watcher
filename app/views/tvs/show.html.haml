@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-md-6
+      -if @tv['poster_path'].present?
+        !=logo_image_path(@tv['poster_path'], 5, @tv['original_name'])
+    .col-md-6
+      %h2= @tv['original_name']
+      %h5= @tv['in_production'] ? 'In porduction' : 'Not in production'
+      %table.table
+        %tr
+          %th Genres:
+          - genres = []
+          - @tv['genres'].each do |genre|
+            - genres << genre['name']
+          %td= genres.join(', ')
+        %tr
+          %th Release date:
+          %td= @tv['first_air_date']
+        %tr
+          %th Last air date:
+          %td= @tv['last_air_date']
+      .well
+        =@tv['overview']
+      %h4 Seasons:
+      %table.table
+        %tr
+          %th Season
+          %th Air date
+          %th Episodes
+        - @tv['seasons'].each do |season|
+          %tr
+            %td= season['season_number']
+            %td= season['air_date']
+            %td= season['episode_count']
