@@ -5,6 +5,14 @@
       .row
         %tr
           %td
-            %p= result['original_name']
+            .col-md-3
+              -if result['poster_path'].present?
+                !=logo_image_path(result['poster_path'], 3, result['original_name'])
           %td
-            = link_to 'Add resource', subscriptions_path(resource_id: result['id']), method: :post, class: 'btn btn-default'
+            .col-md-3
+          %td
+            / result['overview']
+            = result['original_name']
+          %td
+            .col-md-6
+              = link_to 'Add resource', subscriptions_path(resource_id: result['id']), method: :post, class: 'btn btn-default'
