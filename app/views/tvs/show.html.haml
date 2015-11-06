@@ -37,6 +37,6 @@
           %th Episodes
         - @tv.seasons_summary.each do |season|
           %tr
-            %td= season['season_number']
+            %td= link_to season['season_number'], tv_season_path(tv_id: @tv.id, id: season['season_number'])
             %td= season['air_date']
             %td= season['episode_count']
