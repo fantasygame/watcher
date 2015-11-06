@@ -5,4 +5,10 @@
     .row
       - group.each do |tv|
         .col-lg-3
-          =tv.name
+          %table
+            %tr
+              %td
+                = link_to tv_path(tv.id), method: :get do
+                  != logo_image_path(tv.poster_path, 3, tv.name)
+            %tr
+              %td= "#{tv.name} #{tv.year}"
