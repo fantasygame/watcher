@@ -4,7 +4,15 @@
       -if @tv['poster_path'].present?
         !=logo_image_path(@tv['poster_path'], 5, @tv['original_name'])
     .col-md-6
-      %h2= @tv['original_name']
+      .container
+        .row
+          .col-md-4
+            %h2= @tv['original_name']
+          .col-ms-2.tv_show_resource_button
+            -if current_user.is_current_user_subscription?(@tv['id'])
+              = link_to 'Remove resource', subscription_path(@tv['id']), method: :delete, class: 'btn btn-default'
+            -else
+              = link_to 'Add resource', subscriptions_path(resource_id: @tv['id']), method: :post, class: 'btn btn-default'
       %h5= @tv['in_production'] ? 'In porduction' : 'Not in production'
       %table.table
         %tr
