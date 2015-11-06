@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :tvs, only: [:index, :show] do
     resources :seasons, only: [:show]
   end
+  resources :views, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy, :index]
 end

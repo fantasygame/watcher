@@ -1,2 +1,7 @@
 - @season.episodes.each do |episode|
-  %p= episode.name
+  %p
+    = episode.name
+    - if current_user.seen?(episode)
+      = link_to 'Unsee', view_path(view: {episode_id: episode.id}), method: :delete
+    - else
+      = link_to 'Seen', views_path(view: {tv_id: @tv.id, episode_id: episode.id}), method: :post
