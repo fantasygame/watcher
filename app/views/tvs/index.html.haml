@@ -12,5 +12,7 @@
           %td.col-md-1
             / result['overview']
           %td.col-md-6
-            -unless current_user.is_current_user_subscription?(result['id'])
+            -if current_user.is_current_user_subscription?(result['id'])
+              = link_to 'Remove resource', subscription_path(result['id']), method: :delete, class: 'btn btn-default'
+            -else
               = link_to 'Add resource', subscriptions_path(resource_id: result['id']), method: :post, class: 'btn btn-default'

@@ -8,4 +8,9 @@ class SubscriptionsController < ApplicationController
       redirect_to :back, notice: 'Resource has been added'
     end
   end
+
+  def destroy
+    current_user.subscriptions.find_by(resource_id: params[:id]).destroy
+    redirect_to :back, notice: 'Resource has been succesfully removed from your subscriptions'
+  end
 end
