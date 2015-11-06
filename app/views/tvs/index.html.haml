@@ -1,2 +1,10 @@
-- @results.each do |result|
-  %p= link_to result['original_name'], subscriptions_path(resource_id: result['id']), method: :post
+.container
+  %h2 Search results:
+  %table.table.table-stripped
+    - @results.each do |result|
+      .row
+        %tr
+          %td
+            %p= result['original_name']
+          %td
+            = link_to 'Add resource', subscriptions_path(resource_id: result['id']), method: :post, class: 'btn btn-default'
