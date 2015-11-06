@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
   resources :tvs, only: [:index, :show]
-  resources :subscriptions, only: [:create, :destroy]
+  resources :subscriptions, only: [:create, :destroy, :index]
 end

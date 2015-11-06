@@ -9,6 +9,13 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def index
+    tvs = []
+    current_user.subscriptions.each do |subscription|
+      tvs = TvInfo.new(id: subscription.resource_id).call
+    end
+  end
+
   def destroy
     current_user.subscriptions.find_by(resource_id: params[:id]).destroy
     redirect_to :back, notice: 'Resource has been succesfully removed from your subscriptions'
