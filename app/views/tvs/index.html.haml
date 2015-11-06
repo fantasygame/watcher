@@ -8,7 +8,7 @@
             -if result['poster_path'].present?
               !=logo_image_path(result['poster_path'], 1, result['original_name'])
           %td.col-md-3
-            = result['original_name']
+            = link_to result['original_name'], tv_path(result['id']), method: :get
           %td.col-md-1
             / result['overview']
           %td.col-md-6
