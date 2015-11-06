@@ -18,6 +18,13 @@ class Tv < Resource
     episodes
   end
 
+  def year
+    return unless first_air_date.present?
+    first_date = first_air_date[0..3]
+    last_date = last_air_date[0..3]
+    first_date != last_date ? "(#{first_date} - #{last_date})" : "(#{first_date})"
+  end
+
   def last_season
     Season.find(id, seasons_summary.last['season_number'])
   end
