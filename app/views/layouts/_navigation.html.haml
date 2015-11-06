@@ -11,4 +11,8 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'My subscriptions', subscriptions_path, method: :get
         = render 'layouts/nav_links_for_auth'
+
+
