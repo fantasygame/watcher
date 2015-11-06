@@ -5,7 +5,7 @@ class TvsController < ApplicationController
   end
 
   def show
-    @tv = TvInfo.new(id: params[:id]).call
+    @tv = Tv.find(params[:id])
   end
 
   private
