@@ -4,15 +4,13 @@
     - @results.each do |result|
       .row
         %tr
-          %td
-            .col-md-3
-              -if result['poster_path'].present?
-                !=logo_image_path(result['poster_path'], 3, result['original_name'])
-          %td
-            .col-md-3
-          %td
-            / result['overview']
+          %td.col-md-2
+            -if result['poster_path'].present?
+              !=logo_image_path(result['poster_path'], 1, result['original_name'])
+          %td.col-md-3
             = result['original_name']
-          %td
-            .col-md-6
+          %td.col-md-1
+            / result['overview']
+          %td.col-md-6
+            -unless current_user.is_current_user_subscription?(result['id'])
               = link_to 'Add resource', subscriptions_path(resource_id: result['id']), method: :post, class: 'btn btn-default'

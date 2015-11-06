@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
       user.email = auth['info']['email']
     end
   end
+
+  def is_current_user_subscription?(resource_id)
+    subscriptions.map(&:resource_id).include?(resource_id)
+  end
 end
