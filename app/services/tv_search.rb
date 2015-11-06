@@ -9,6 +9,7 @@ class TvSearch
     search = Tmdb::Search.new
     search.resource('tv')
     search.query(name)
-    search.fetch
+    results = search.fetch
+    results.map { |result| Tv.find(result['id']) }
   end
 end
