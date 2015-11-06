@@ -4,6 +4,10 @@ class TvsController < ApplicationController
     @results = TvSearch.new(name: search_param).call
   end
 
+  def show
+    @tv = TvInfo.new(id: params[:id]).call
+  end
+
   private
 
   def valid_params?
