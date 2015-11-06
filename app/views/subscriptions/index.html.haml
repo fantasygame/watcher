@@ -1,1 +1,8 @@
-%h4 Index
+.container
+  .row
+    %h3 Currently watching
+  - @tvs.in_groups_of(4, false).each do |group|
+    .row
+      - group.each do |tv|
+        .col-lg-3
+          =tv.name
