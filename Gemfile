@@ -7,6 +7,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'themoviedb'
+gem 'font-awesome-rails'
+gem 'source-sans-pro-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
