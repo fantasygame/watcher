@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     resources :seasons, only: [:show]
     resources :episodes, only: [:index]
   end
+  resources :episodes do
+    collection do
+      get :to_see
+    end
+  end
   resources :views, only: [:create, :destroy] do
     collection do
       get :set_all

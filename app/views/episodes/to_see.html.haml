@@ -1,0 +1,5 @@
+- @results.each do |result|
+  %h3= result.tv.name
+  %ul
+    - result.episodes.each do |episode|
+      %li= episode.name
