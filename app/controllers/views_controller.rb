@@ -9,6 +9,11 @@ class ViewsController < ApplicationController
     redirect_to :back
   end
 
+  def set_all
+    SetAsSeen.new(current_user, Tv.find(params[:tv_id])).call
+    redirect_to :back
+  end
+
   private
 
   def view_params

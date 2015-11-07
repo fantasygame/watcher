@@ -1,5 +1,5 @@
 .container
-  = link_to 'Set all as seen',
+  = link_to 'Set all as seen', set_all_views_path(tv_id: @tv.id)
   %table.table
     - @tv.seasons.each_with_index do |season, index|
       %tr
