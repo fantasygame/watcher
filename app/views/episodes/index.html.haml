@@ -11,6 +11,8 @@
           Season
           = season.season_number
         %th
+          = link_to 'Set season as seen', set_all_views_path(tv_id: @tv.id, season_id: season.season_number), class: 'btn btn-default'
+          = link_to 'Set season as unseen', unset_all_views_path(tv_id: @tv.id, season_id: season.season_number), class: 'btn btn-default'
       - season.episodes.each do |episode|
         %tr
           %td
