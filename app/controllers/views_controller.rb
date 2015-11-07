@@ -5,7 +5,7 @@ class ViewsController < ApplicationController
   end
 
   def destroy
-    View.where(user: current_user, episode_id: view_params[:episode_id]).destroy_all
+    View.where(user: current_user, episode_id: params[:id]).destroy_all
     redirect_to :back
   end
 

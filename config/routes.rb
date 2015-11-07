@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
   resources :tvs, only: [:index, :show] do
     resources :seasons, only: [:show]
+    resources :episodes, only: [:index]
   end
   resources :views, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy, :index]
