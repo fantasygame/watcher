@@ -1,5 +1,9 @@
-- @results.each do |result|
-  %h3= result.tv.name
-  %ul
-    - result.episodes.each do |episode|
-      %li= episode.name
+.container
+  - @results.each do |result|
+    %h3= result.tv.name
+    %table.table
+      - result.episodes.each do |episode|
+        %tr
+          %td.text-nowrap= episode.season_marker
+          %td.text-nowrap= episode.name
+          %td= episode.overview
