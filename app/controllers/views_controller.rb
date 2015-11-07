@@ -14,6 +14,11 @@ class ViewsController < ApplicationController
     redirect_to :back
   end
 
+  def unset_all
+    SetAsUnseen.new(current_user, Tv.find(params[:tv_id])).call
+    redirect_to :back
+  end
+
   private
 
   def view_params

@@ -1,5 +1,9 @@
 .container
-  = link_to 'Set all as seen', set_all_views_path(tv_id: @tv.id)
+  %h1
+    = link_to @tv.name, tv_path(id: @tv.id)
+    episodes
+  = link_to 'Set all as seen', set_all_views_path(tv_id: @tv.id), class: 'btn btn-default'
+  = link_to 'Set all as unseen', unset_all_views_path(tv_id: @tv.id), class: 'btn btn-default'
   %table.table
     - @tv.seasons.each_with_index do |season, index|
       %tr

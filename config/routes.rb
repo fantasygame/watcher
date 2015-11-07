@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :views, only: [:create, :destroy] do
     collection do
       get :set_all
+      get :unset_all
     end
   end
   resources :subscriptions, only: [:create, :destroy, :index]
