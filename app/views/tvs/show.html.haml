@@ -2,7 +2,7 @@
   .row
     .col-md-6
       - if @tv.poster_path.present?
-        !=logo_image_path(@tv.poster_path, 5, @tv.original_name)
+        != logo_image_path(@tv.poster_path, 5, @tv.original_name)
     .col-md-6
       .container
         .row
@@ -28,7 +28,7 @@
           %th Last air date:
           %td= @tv.last_air_date
       .well
-        =@tv.overview
+        = @tv.overview
       = link_to 'Episodes', tv_episodes_path(tv_id: @tv.id), class: 'btn btn-default'
       %h4 Seasons:
       %table.table
