@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'themoviedb'
 gem 'font-awesome-rails'
 gem 'source-sans-pro-rails'
+gem "mini_magick"
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
