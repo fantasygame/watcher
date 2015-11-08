@@ -4,7 +4,5 @@
   %td= episode.overview
   %td.text-nowrap
     = link_to toggle_view_path(id: episode.id, view: { tv_id: tv.id, episode_id: episode.id }), remote: :true, class: 'toggle-seen' do
-      - if current_user.seen?(episode)
-        Set as unseen
-      - else
-        Set as seed
+      %button.btn.btn-default.btn-sm
+        %i.fa{ class: (current_user.seen?(episode) ? 'fa-eye-slash' : 'fa-eye') }

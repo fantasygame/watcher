@@ -17,14 +17,7 @@
       $('.toggle-seen').on('ajax:success',function(event, data, status, xhr){
         if (status == 'success') {
           episode = $('.episode-' + data.episode_id);
-          button = episode.find('.toggle-seen');
-          if(data.created) {
-            episode.addClass('seen-episode');
-            button.html('Set as unseen');
-          } else {
-            episode.removeClass('seen-episode');
-            button.html('Set as seen');
-          }
+          toggleEpisodes(episode, data.created);
         }
       });
 
@@ -34,13 +27,20 @@
         } else {
           episodes = $('.tv-' + data.tv_id);
         }
-        buttons = episodes.find('.toggle-seen');
-        if(data.set_all) {
+        toggleEpisodes(episodes, data.set_all);
+      });
+
+      function toggleEpisodes(episodes, turnOn) {
+        buttons = episodes.find('.toggle-seen i');
+        if (turnOn) {
           episodes.addClass('seen-episode');
-          buttons.html('Set as unseen');
+          buttons.removeClass('fa-eye');
+          buttons.addClass('fa-eye-slash');
         } else {
           episodes.removeClass('seen-episode');
-          buttons.html('Set as seen');
+          buttons.removeClass('fa-eye-slash');
+          buttons.addClass('fa-eye');
         }
-      });
+        console.log('test');
+      }
     });
