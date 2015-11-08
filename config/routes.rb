@@ -13,10 +13,13 @@ Rails.application.routes.draw do
       get :to_see
     end
   end
-  resources :views, only: [:create, :destroy] do
+  resources :views, only: [] do
     collection do
       get :set_all
       get :unset_all
+    end
+    member do
+      get :toggle
     end
   end
   resources :subscriptions, only: [:create, :destroy, :index]
