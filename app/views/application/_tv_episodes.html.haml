@@ -5,10 +5,15 @@
         %th
           = link_to tv_path(id: tv.id) do
             != logo_image_path(tv.poster_path, 1, tv.name)
-        %th{ style: 'vertical-align: middle' }= link_to tv.name, tv_path(id: tv.id)
-        %th{ colspan: 2, style: 'vertical-align: middle' }
-          = link_to 'Set all episodes as seen', set_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default'
-          = link_to 'Set all episodes as unseen', unset_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default'
+        %th{ style: 'font-size: 25px;' }= link_to tv.name, tv_path(id: tv.id)
+        %th
+        %th
+          = link_to set_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
+            %i.fa.fa-eye
+            Show seen
+          = link_to unset_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
+            %i.fa.fa-eye-slash
+            Show unseen
       - tv.seasons.each do |season|
         = render partial: 'season_episodes', locals: { tv: tv, season: season }
 - content_for :js do
