@@ -1,7 +1,7 @@
 -# navigation styled for Bootstrap 3.0
 %nav.navbar.navbar-default
   .container
-    .navbar-header
+    .navbar-header.navbar_margin
       %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
@@ -11,10 +11,11 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-right.navbar_margin
         - if user_signed_in?
           %li= link_to 'My shows', subscriptions_path
           %li= link_to 'Episodes to see', to_see_episodes_path
         = render 'layouts/nav_links_for_auth'
-
+      %ul.navbar-center{role: "search"}
+        = render 'visitors/tv_search_form'
 
