@@ -1,8 +1,7 @@
 .container
   .row
     .col-md-6
-      - if @tv.poster_path.present?
-        != logo_image_path(@tv.poster_path, 5, @tv.name)
+      != logo_image_path(@tv.poster_path, 5, @tv.name)
     .col-md-6
       .container
         .row
