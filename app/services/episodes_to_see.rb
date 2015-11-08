@@ -19,6 +19,6 @@ class EpisodesToSee
   end
 
   def seen_episodes_ids(tv)
-    @seen_episodes_ids ||= View.where(user: user, tv_id: tv.id).map(&:episode_id).uniq
+    @seen_episodes_ids = View.where(user: user, tv_id: tv.id).map(&:episode_id).uniq
   end
 end
