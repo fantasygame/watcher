@@ -11,3 +11,20 @@
           = link_to 'Set all episodes as unseen', unset_all_views_path(tv_id: tv.id), class: 'btn btn-default'
       - tv.seasons.each do |season|
         = render partial: 'season_episodes', locals: { tv: tv, season: season }
+- content_for :js do
+  :javascript
+    $(function(){
+      $('.toggle-seen').on('ajax:success',function(event, data, status, xhr){
+        if (status == 'success') {
+          row = $('.episode-' + data.episode_id);
+          button = row.find('.toggle-seen');
+          if(data.created) {
+            row.addClass('seen-episode');
+            button.html('Set as unseen');
+          } else {
+            row.removeClass('seen-episode');
+            button.html('Set as seen');
+          }
+        }
+      });
+    });
