@@ -5,8 +5,7 @@
       .row
         %tr
           %td.col-md-2
-            - if tv.poster_path.present?
-              !=logo_image_path(tv.poster_path, 1, tv.name)
+            !=logo_image_path(tv.poster_path, 1, tv.name)
           %td.col-md-3
             = link_to tv.name, tv_path(tv.id), method: :get
           %td.col-md-1
