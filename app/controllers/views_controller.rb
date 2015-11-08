@@ -1,5 +1,4 @@
 class ViewsController < ApplicationController
-
   def toggle
     created = false
     if current_user.seen_episode_id?(view_params[:episode_id])
@@ -13,12 +12,12 @@ class ViewsController < ApplicationController
 
   def set_all
     SetAsSeen.new(current_user, Tv.find(params[:tv_id]), season_episodes).call
-    redirect_to :back
+    render json: { tv_id: params[:tv_id], season_id: params[:season_id], set_all: true }
   end
 
   def unset_all
     SetAsUnseen.new(current_user, Tv.find(params[:tv_id]), season_episodes).call
-    redirect_to :back
+    render json: { tv_id: params[:tv_id], season_id: params[:season_id], set_all: false }
   end
 
   private
