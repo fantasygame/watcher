@@ -7,7 +7,7 @@
         = stylesheet_link_tag 'application', media: 'all'
         = javascript_include_tag 'application'
         = csrf_meta_tags
-        / Custom Fonts
+        = yield :js
   %body
     %header
       = render 'layouts/navigation' unless current_page?(root_path)
