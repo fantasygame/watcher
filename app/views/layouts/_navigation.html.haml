@@ -13,7 +13,7 @@
         = render 'layouts/navigation_links'
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li= link_to 'My subscriptions', subscriptions_path
+          %li= link_to 'My shows', subscriptions_path
           %li= link_to 'Episodes to see', to_see_episodes_path
         = render 'layouts/nav_links_for_auth'
 
