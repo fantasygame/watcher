@@ -2,23 +2,4 @@
   %h1
     = link_to @tv.name, tv_path(id: @tv.id)
     episodes
-  = link_to 'Set all as seen', set_all_views_path(tv_id: @tv.id), class: 'btn btn-default'
-  = link_to 'Set all as unseen', unset_all_views_path(tv_id: @tv.id), class: 'btn btn-default'
-  %table.table
-    - @tv.seasons.each do |season|
-      %tr
-        %th
-          Season
-          = season.season_number
-        %th
-          = link_to 'Set season as seen', set_all_views_path(tv_id: @tv.id, season_id: season.season_number), class: 'btn btn-default'
-          = link_to 'Set season as unseen', unset_all_views_path(tv_id: @tv.id, season_id: season.season_number), class: 'btn btn-default'
-      - season.episodes.each do |episode|
-        %tr
-          %td
-            = episode.name
-          %td
-            - if current_user.seen?(episode)
-              = link_to 'Set as unseen', view_path(id: episode.id), method: :delete
-            - else
-              = link_to 'Set as seen', views_path(view: {tv_id: @tv.id, episode_id: episode.id}), method: :post
+  = render partial: 'tv_episodes', locals: { tv: @tv }
