@@ -1,4 +1,4 @@
-%tr
+%tr{ class: ('seen-episode' if current_user.try(:seen?, episode)) }
   %td.text-nowrap= episode.season_marker
   %td.text-nowrap= episode.name
   %td= episode.overview
