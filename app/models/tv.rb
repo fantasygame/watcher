@@ -8,7 +8,8 @@ class Tv < Resource
   def seasons(sort: :desc)
     season_numbers = seasons_summary.map { |season_summary| season_summary['season_number'] }
     seasons = season_numbers.map { |season_number| Season.find(id, season_number) }
-    seasons.sort_by{ |e| - e.season_number } if sort == :desc
+    seasons.sort_by!{ |e| - e.season_number } if sort == :desc
+    seasons
   end
 
   def episodes
