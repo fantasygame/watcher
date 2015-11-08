@@ -5,14 +5,14 @@
       .row
         %tr
           %td.col-md-2
-            -if tv.poster_path.present?
+            - if tv.poster_path.present?
               !=logo_image_path(tv.poster_path, 1, tv.name)
           %td.col-md-3
             = link_to tv.name, tv_path(tv.id), method: :get
           %td.col-md-1
             / tv.overview
           %td.col-md-6
-            -if current_user.subscribed?(tv.id)
+            - if current_user.subscribed?(tv.id)
               = link_to 'Remove from my shows', subscription_path(tv.id), method: :delete, class: 'btn btn-default'
-            -else
+            - else
               = link_to 'Add to my shows', subscriptions_path(resource_id: tv.id), method: :post, class: 'btn btn-default'
