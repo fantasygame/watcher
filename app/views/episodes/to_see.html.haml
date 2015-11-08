@@ -1,3 +1,2 @@
 .container
-  - @results.tvs.each do |tv|
-    = render partial: 'tv_episodes', locals: { tv: tv }
+  = render partial: 'tv_episodes', locals: { tvs: @results.tvs }
