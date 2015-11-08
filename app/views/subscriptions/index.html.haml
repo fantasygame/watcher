@@ -2,13 +2,13 @@
   .row
     %h3 Currently watching
   - @tvs.in_groups_of(4, false).each do |group|
-    .row
+    .row.row_margin
       - group.each do |tv|
         .col-lg-3
           %table
             %tr
               %td
-                = link_to tv_episodes_path(tv_id: tv.id), method: :get do
+                = link_to tv_path(tv.id), method: :get do
                   != logo_image_path(tv.poster_path, 3, tv.name)
             %tr
-              %td= link_to "#{tv.name} #{tv.year}", tv_path(tv.id)
+              %td= link_to "#{tv.name} #{tv.year}", tv_episodes_path(tv_id: tv.id)
