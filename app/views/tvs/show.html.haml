@@ -2,12 +2,12 @@
   .row
     .col-md-6
       - if @tv.poster_path.present?
-        != logo_image_path(@tv.poster_path, 5, @tv.original_name)
+        != logo_image_path(@tv.poster_path, 5, @tv.name)
     .col-md-6
       .container
         .row
           .col-md-4
-            %h2= @tv.original_name
+            %h2= @tv.name
           .col-ms-2.tv_show_resource_button
             - if current_user.subscribed?(@tv.id)
               = link_to 'Remove from my shows', subscription_path(@tv.id), method: :delete, class: 'btn btn-default'
