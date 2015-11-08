@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
   def seen?(episode)
     views.where(episode_id: episode.id).present?
   end
+
+  def seen_episode_id?(episode_id)
+    views.where(episode_id: episode_id).present?
+  end
 end
