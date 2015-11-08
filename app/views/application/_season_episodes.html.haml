@@ -5,11 +5,12 @@
     = season.season_number
   %th
   %th
-    = link_to set_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default' do
-      %i.fa.fa-eye
-      Season seen
-    = link_to unset_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default' do
-      %i.fa.fa-eye-slash
-      Season unseen
+    .btn-group
+      = link_to set_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default' do
+        %i.fa.fa-eye
+        Season seen
+      = link_to unset_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default' do
+        %i.fa.fa-eye-slash
+        Season unseen
 - season.episodes.each do |episode|
   = render partial: 'episode_row', locals: { tv: tv, episode: episode }

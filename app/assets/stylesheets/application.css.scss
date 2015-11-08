@@ -43,4 +43,14 @@
   td, th {
     vertical-align: middle !important;
   }
+
+  .btn-group {
+    .btn {
+      width: 140px;
+    }
+
+    i {
+      padding-right: 3px;
+    }
+  }
 }

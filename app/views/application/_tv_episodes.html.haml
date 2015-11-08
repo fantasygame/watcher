@@ -8,12 +8,13 @@
         %th{ style: 'font-size: 25px;' }= link_to tv.name, tv_path(id: tv.id)
         %th
         %th
-          = link_to set_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
-            %i.fa.fa-eye
-            Show seen
-          = link_to unset_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
-            %i.fa.fa-eye-slash
-            Show unseen
+          .btn-group
+            = link_to set_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
+              %i.fa.fa-eye
+              Show seen
+            = link_to unset_all_views_path(tv_id: tv.id), remote: :true, class: 'toggle-all btn btn-default' do
+              %i.fa.fa-eye-slash
+              Show unseen
       - tv.seasons.each do |season|
         = render partial: 'season_episodes', locals: { tv: tv, season: season }
 - content_for :js do
