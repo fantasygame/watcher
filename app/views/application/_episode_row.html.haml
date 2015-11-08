@@ -1,7 +1,8 @@
 %tr
-  %td= episode.season_marker
-  %td= episode.name
-  %td
+  %td.text-nowrap= episode.season_marker
+  %td.text-nowrap= episode.name
+  %td= episode.overview
+  %td.text-nowrap
     - if current_user.seen?(episode)
       = link_to 'Set as unseen', view_path(id: episode.id), method: :delete
     - else

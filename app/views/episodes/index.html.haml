@@ -1,5 +1,2 @@
 .container
-  %h1
-    = link_to @tv.name, tv_path(id: @tv.id)
-    episodes
   = render partial: 'tv_episodes', locals: { tv: @tv }
