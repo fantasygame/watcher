@@ -1,8 +1,13 @@
-%tr{ class: "episode-#{episode.id} tv-#{tv.id} season-#{episode.season_number}" + (' seen-episode' if current_user.try(:seen?, episode)).to_s }
+%tr{ class: "episode-#{episode.id} tv-#{tv.id} season-#{episode.season_number}" + (' seen-episode' if seen ).to_s }
   %td.text-nowrap
     = link_to toggle_view_path(id: episode.id, view: { tv_id: tv.id, episode_id: episode.id }), remote: :true, class: 'toggle-seen' do
       %button.btn.btn-default.btn-sm
         %i.fa{ class: (current_user.seen?(episode) ? 'fa-eye-slash' : 'fa-eye') }
   %td.text-nowrap= episode.season_marker
   %td.text-nowrap= episode.name
-  %td= episode.overview
+  %td
+    - if episode.overview.present?
+      %span.overview{ style: ('display: none;' unless seen) }
+        = episode.overview
+      .show-overview{ style: ('display: none;' if seen) }
+        \...

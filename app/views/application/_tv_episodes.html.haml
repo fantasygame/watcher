@@ -20,6 +20,10 @@
 - content_for :js do
   :javascript
     $(function(){
+      $('.show-overview').click(function(){
+        toggleOverview($(this).parent(), true);
+      });
+
       $('.toggle-seen').on('ajax:success',function(event, data, status, xhr){
         if (status == 'success') {
           episode = $('.episode-' + data.episode_id);
@@ -38,6 +42,7 @@
 
       function toggleEpisodes(episodes, turnOn) {
         buttons = episodes.find('.toggle-seen i');
+        toggleOverview(episodes, turnOn);
         if (turnOn) {
           episodes.addClass('seen-episode');
           buttons.removeClass('fa-eye');
@@ -47,6 +52,17 @@
           buttons.removeClass('fa-eye-slash');
           buttons.addClass('fa-eye');
         }
-        console.log('test');
+      }
+
+      function toggleOverview(episodes, turnOn) {
+        showOverview = episodes.find('.show-overview');
+        overview = episodes.find('.overview');
+        if (turnOn) {
+          showOverview.hide();
+          overview.show();
+        } else {
+          showOverview.show();
+          overview.hide();
+        }
       }
     });
