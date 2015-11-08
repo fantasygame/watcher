@@ -1,4 +1,5 @@
 %tr.active
+  %th
   %th.text-nowrap
     Season
     = season.season_number
@@ -6,6 +7,5 @@
   %th
     = link_to 'Set season as seen', set_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default'
     = link_to 'Set season as unseen', unset_all_views_path(tv_id: tv.id, season_id: season.season_number), remote: :true, class: 'toggle-all btn btn-default'
-  %th
 - season.episodes.each do |episode|
   = render partial: 'episode_row', locals: { tv: tv, episode: episode }
