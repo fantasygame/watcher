@@ -13,6 +13,6 @@
             / tv.overview
           %td.col-md-6
             -if current_user.subscribed?(tv.id)
-              = link_to 'Remove resource', subscription_path(tv.id), method: :delete, class: 'btn btn-default'
+              = link_to 'Remove from watched', subscription_path(tv.id), method: :delete, class: 'btn btn-default'
             -else
-              = link_to 'Add resource', subscriptions_path(resource_id: tv.id), method: :post, class: 'btn btn-default'
+              = link_to 'Add to watched', subscriptions_path(resource_id: tv.id), method: :post, class: 'btn btn-default'
