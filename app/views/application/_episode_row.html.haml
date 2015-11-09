@@ -3,8 +3,11 @@
     = link_to toggle_view_path(id: episode.id, view: { tv_id: tv.id, episode_id: episode.id }), remote: :true, class: 'toggle-seen' do
       %button.btn.btn-default.btn-sm
         %i.fa{ class: (seen ? 'fa-eye-slash' : 'fa-eye') }
-  %td.text-nowrap= episode.season_marker
-  %td.text-nowrap= episode.name
+  %td.text-nowrap
+    = episode.season_marker
+    = "(#{episode.air_date})"
+  %td.text-nowrap
+    = episode.name
   %td
     - if episode.overview.present?
       %span.overview{ style: ('display: none;' unless seen) }
