@@ -14,7 +14,9 @@ class EpisodesToSee
     tvs.each do |tv|
       tv.seasons.each do |season|
         episodes = season.episodes
-        episodes.reject! { |episode| seen_episodes_ids(tv).include?(episode.id) }
+        episodes.reject! do |episode|
+          seen_episodes_ids(tv).include?(episode.id) || future_episode?(episode)
+        end
         unless episodes.empty?
           results[tv] = {} unless results.key?(tv)
           results[tv][season] = episodes
@@ -29,5 +31,9 @@ class EpisodesToSee
 
   def seen_episodes_ids(tv)
     @seen_episodes_ids ||= View.where(user: user, tv_id: tv.id).map(&:episode_id).uniq
+  end
+
+  def future_episode?(episode)
+    Time.now.in_time_zone('America/Los_Angeles').to_date.to_s <= episode.air_date
   end
 end
