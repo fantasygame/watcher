@@ -1,7 +1,7 @@
 class ViewsController < ApplicationController
   def toggle
     created = false
-    if current_user.seen_episode_id?(view_params[:episode_id])
+    if user_signed_in? && current_user.seen_episode_id?(view_params[:episode_id])
       View.where(user: current_user, episode_id: params[:id]).destroy_all
     else
       View.create(view_params.merge(user: current_user))
