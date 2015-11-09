@@ -13,5 +13,9 @@ module ToSee
       end
       tvs
     end
+
+    def empty?
+      @result_hash.empty?
+    end
   end
 end

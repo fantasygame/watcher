@@ -1,2 +1,8 @@
 .container
-  = render partial: 'tv_episodes', locals: { tvs: @results.tvs }
+  - if @results.empty?
+    %p
+      .well Search above and get your shows together
+  - else
+    .centered{ style: 'margin: auto;'}
+      %h2 Episodes to see
+    = render partial: 'tv_episodes', locals: { tvs: @results.tvs }
