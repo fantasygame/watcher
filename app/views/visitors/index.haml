@@ -61,28 +61,7 @@
     %h1 Get your shows together!
 / Portfolio
 %section#portfolio.portfolio
-  .container
-    .row
-      .col-lg-10.col-lg-offset-1.text-center
-        %h2 Check out this shows
-        %hr.small
-          .row
-            .col-md-6
-              .portfolio-item
-                = link_to tv_path(id: 1399) do
-                  = image_tag('got.jpg', class: 'img-portfolio img-responsive')
-            .col-md-6
-              .portfolio-item
-                = link_to tv_path(id: 1396) do
-                  = image_tag('breakingbad.jpg', class: 'img-portfolio img-responsive')
-            .col-md-6
-              .portfolio-item
-                = link_to tv_path(id: 1402) do
-                  = image_tag('twd.jpg', class: 'img-portfolio img-responsive')
-            .col-md-6
-              .portfolio-item
-                = link_to tv_path(id: 1418) do
-                  = image_tag('tbbt.jpg', class: 'img-portfolio img-responsive')
+  = render 'example_shows'
 / Footer
 %footer
   .container

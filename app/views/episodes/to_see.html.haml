@@ -1,7 +1,6 @@
 .container
   - if @results.empty?
-    %p
-      .well Search above and get your shows together
+    = render 'no_shows'
   - else
     .centered{ style: 'margin: auto;'}
       %h2 Episodes to see
