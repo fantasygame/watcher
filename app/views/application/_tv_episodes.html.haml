@@ -1,6 +1,6 @@
 .episodes
-  - tvs.each do |tv|
-    %table.table
+  %table.table
+    - tvs.each do |tv|
       %tr
         %th
           = link_to tv_path(id: tv.id) do
