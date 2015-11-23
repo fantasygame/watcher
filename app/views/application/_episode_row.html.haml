@@ -4,9 +4,11 @@
       %button.btn.btn-default.btn-sm
         %i.fa{ class: (seen ? 'fa-eye-slash' : 'fa-eye') }
   %td.text-nowrap
-    = episode.season_marker
-    = "(#{episode.air_date})"
+    %span.season-marker
+      = tv.name
+      = episode.season_marker
   %td.text-nowrap
+    = "#{episode.air_date}"
     = episode.name
   %td
     - if episode.overview.present?
