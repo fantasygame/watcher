@@ -2,7 +2,13 @@ class Tv < Resource
   attr_reader :seasons_summary
 
   def self.find(id)
-    build Tmdb::TV.detail(id)
+    loop do
+      begin
+        return build Tmdb::TV.detail(id)
+      rescue => e
+        raise e unless e.message =~ /over the allowed limit/
+      end
+    end
   end
 
   def seasons(sort: :desc)
