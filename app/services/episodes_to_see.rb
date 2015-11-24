@@ -34,6 +34,6 @@ class EpisodesToSee
   end
 
   def future_episode?(episode)
-    Time.now.in_time_zone('America/Los_Angeles').to_date.to_s < episode.air_date
+    Time.now.in_time_zone('America/Los_Angeles').to_date.to_s < episode.air_date.to_s
   end
 end
