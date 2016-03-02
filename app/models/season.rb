@@ -11,7 +11,7 @@ class Season < Resource
     end
   end
 
-  def episodes(sort: :desc)
+  def episodes(sort: :asc)
     episodes = episodes_summary.map { |episode_summary| Episode.build(episode_summary) }
     episodes.reverse! if sort == :desc
     episodes
