@@ -8,9 +8,7 @@ class EpisodesToSee
 
   def call
     results = {}
-    if @tvs.empty?
-      @tvs = user.tvs
-    end
+    @tvs = user.tvs if @tvs.empty?
     @tvs.each do |tv|
       subscription = user.subscriptions.find_by(resource_id: tv.id)
       subscription ||= Struct(season_number: 1, episode_number: 0)
