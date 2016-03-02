@@ -7,8 +7,8 @@ class SubscriptionsController < ApplicationController
       Subscription.find_or_create_by(
         user_id: current_user.id,
         resource_id: params[:resource_id],
-        episode: 1,
-        season: 1
+        episode_number: 1,
+        season_number: 1
       )
       redirect_to :back, notice: 'Resource has been added'
     end
