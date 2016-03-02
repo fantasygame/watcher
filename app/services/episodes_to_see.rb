@@ -11,7 +11,7 @@ class EpisodesToSee
     @tvs = user.tvs if @tvs.empty?
     @tvs.each do |tv|
       subscription = user.subscriptions.find_by(resource_id: tv.id)
-      subscription ||= Struct(season_number: 1, episode_number: 0)
+      subscription ||= Struct(season_number: 1, episode_number: 0, finished?: false)
       next if subscription.finished?
       tv.seasons_since(subscription.season_number).each do |season|
         episodes = season.episodes
