@@ -13,7 +13,7 @@ class EpisodesToSee
       subscription = user.subscriptions.find_by(resource_id: tv.id)
       subscription ||= Struct(season_number: 1, episode_number: 0, finished?: false)
       next if subscription.finished?
-      tv.seasons_since(subscription.season_number).each do |season|
+      tv.seasons_since(subscription.season_number, 2).each do |season|
         episodes = season.episodes
         episodes.reject! do |episode|
           episode.episode_number <= subscription.episode_number || future_episode?(episode)
