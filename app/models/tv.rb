@@ -12,8 +12,12 @@ class Tv < Resource
   end
 
   def seasons(sort: :desc)
-    season_numbers = seasons_summary.map { |season_summary| season_summary['season_number'] }
-    seasons = season_numbers.map { |season_number| Season.find(id, season_number) }
+    seasons_since(0, sort: sort)
+  end
+
+  def seasons_since(season_number, sort: :desc)
+    season_numbers_since = season_numbers.reject { |number| number < season_number  }
+    seasons = season_numbers_since.map { |season_number| Season.find(id, season_number) }
     seasons.sort_by!{ |e| - e.season_number } if sort == :desc
     seasons
   end
