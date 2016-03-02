@@ -41,6 +41,10 @@ class Tv < Resource
     last_season.episodes.last
   end
 
+  def season_numbers
+    seasons_summary.map { |season_summary| season_summary['season_number'] }
+  end
+
   def seasons=(seasons_summary)
     @seasons_summary = seasons_summary
   end
