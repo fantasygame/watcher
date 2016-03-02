@@ -13,4 +13,4 @@
         %i.fa.fa-eye-slash
         Season unseen
 - season.episodes.each do |episode|
-  = render partial: 'episode_row', locals: { tv: tv, episode: episode, seen: current_user.try(:seen?, episode) }
+  = render partial: 'episode_row', locals: { tv: tv, episode: episode, seen: current_user.try(:seen?, tv, episode) }
