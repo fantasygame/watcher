@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :subscriptions
-  has_many :views
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, if: :new_record?
 
@@ -29,8 +28,16 @@ class User < ActiveRecord::Base
     subscriptions.map(&:resource_id).include?(resource_id)
   end
 
-  def seen?(episode)
-    views.where(episode_id: episode.id).present?
+  def seen?(resource, episode)
+    subscription = Subscription.find_by(resource_id: resource.id)
+    return false if subscription.blank? || resource.blank? || episode.blank?
+    if subscription.season_number > episode.season_number
+      true
+    elsif subscription.season_number < episode.season_number
+      false
+    else
+      subscription.episode_number >= episode.episode_number
+    end
   end
 
   def seen_episode_id?(episode_id)

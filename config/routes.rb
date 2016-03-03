@@ -22,5 +22,9 @@ Rails.application.routes.draw do
       get :toggle
     end
   end
-  resources :subscriptions, only: [:create, :destroy, :index]
+  resources :subscriptions, only: [:create, :destroy, :index] do
+    collection do
+      get :seen
+    end
+  end
 end
