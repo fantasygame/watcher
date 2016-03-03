@@ -26,8 +26,10 @@
 
       $('.toggle-seen').on('ajax:success',function(event, data, status, xhr){
         if (status == 'success') {
-          episode = $('.episode-' + data.episode_id);
-          toggleEpisodes(episode, data.created);
+          episode = $('.season-' + data.season_number + '.episode-' + data.episode_number);
+          episode.addClass('seen-episode');
+          episode.prevAll().addClass('seen-episode');
+          episode.nextAll().removeClass('seen-episode');
         }
       });
 
@@ -39,20 +41,6 @@
         }
         toggleEpisodes(episodes, data.set_all);
       });
-
-      function toggleEpisodes(episodes, turnOn) {
-        buttons = episodes.find('.toggle-seen i');
-        toggleOverview(episodes, turnOn);
-        if (turnOn) {
-          episodes.addClass('seen-episode');
-          buttons.removeClass('fa-eye');
-          buttons.addClass('fa-eye-slash');
-        } else {
-          episodes.removeClass('seen-episode');
-          buttons.removeClass('fa-eye-slash');
-          buttons.addClass('fa-eye');
-        }
-      }
 
       function toggleOverview(episodes, turnOn) {
         showOverview = episodes.find('.show-overview');
