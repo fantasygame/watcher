@@ -5,8 +5,7 @@
         %i.fa{ class: (seen ? 'fa-eye-slash' : 'fa-eye') }
   %td.text-nowrap
     %span.season-marker
-      = tv.name
-      = episode.season_marker
+      = episode.episode_marker(tv.name)
   %td.text-nowrap
     = "#{episode.air_date}"
     = episode.name
