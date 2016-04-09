@@ -6,6 +6,8 @@
   %td.text-nowrap
     %span.season-marker
       = episode.episode_marker(tv.name)
+      = render partial: 'torrent_link', locals: { episode: episode, tv_name: tv.name, type: :thepiratebay }
+      = render partial: 'torrent_link', locals: { episode: episode, tv_name: tv.name, type: :kickass }
   %td.text-nowrap
     = "#{episode.air_date}"
     = episode.name

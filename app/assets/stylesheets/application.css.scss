@@ -57,4 +57,11 @@
   .show-overview {
     cursor: pointer;
   }
+
+  .torrent-link {
+    img {
+      display: inline;
+      max-width: none;
+    }
+  }
 }
