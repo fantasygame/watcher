@@ -23,7 +23,11 @@ class SubscriptionsController < ApplicationController
       season_number: params[:season_number]
     )
     render(
-      json: { season_number: params[:season_number], episode_number: params[:episode_number] },
+      json: {
+        season_number: params[:season_number],
+        episode_number: params[:episode_number],
+        tv_number: params[:resource_id]
+      },
       status: 200
     )
   end
