@@ -21,6 +21,6 @@ module ApplicationHelper
     when 5
       img_size = "500x735"
     end
-    image_tag("no_image.png", alt: "#{alt_img}", size: "#{img_size}")
+    image_tag("no_image.png", alt: alt_img.to_s, size: img_size.to_s)
   end
 end

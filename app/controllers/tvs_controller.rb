@@ -1,6 +1,6 @@
 class TvsController < ApplicationController
   def index
-    redirect_to :back, alert: 'No name provided' unless valid_params?
+    redirect_to :back, alert: "No name provided" unless valid_params?
     @tvs = TvSearch.new(name: search_param).call
   end
 

@@ -8,7 +8,7 @@ class Episode < Resource
   end
 
   def torrent_link(tv_name, type)
-    "#{base_torrent_link(type)}/#{URI::encode(episode_marker(tv_name))}"
+    "#{base_torrent_link(type)}/#{URI.encode(episode_marker(tv_name))}"
   end
 
   private

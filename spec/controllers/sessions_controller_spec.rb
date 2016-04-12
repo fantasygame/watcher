@@ -1,12 +1,11 @@
 describe SessionsController, :omniauth do
-
   before do
-    request.env['omniauth.auth'] = auth_mock
+    request.env["omniauth.auth"] = auth_mock
   end
 
   describe "#create" do
     it "creates a user" do
-      expect {post :create, provider: :google}.to change{ User.count }.by(1)
+      expect { post :create, provider: :google }.to change { User.count }.by(1)
     end
 
     it "creates a session" do

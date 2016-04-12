@@ -4,7 +4,7 @@ FactoryGirl.define do
     email "test@example.com"
 
     trait :admin do
-      role 'admin'
+      role "admin"
     end
   end
 end

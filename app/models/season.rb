@@ -18,7 +18,7 @@ class Season < Resource
   end
 
   def episodes_numbers
-    episodes_summary.map { |episode_summary| episode_summary['episode_number'] }
+    episodes_summary.map { |episode_summary| episode_summary["episode_number"] }
   end
 
   def episodes=(data)

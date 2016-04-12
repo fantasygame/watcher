@@ -1,4 +1,4 @@
-require_relative 'helpers/omniauth'
+require_relative "helpers/omniauth"
 
 RSpec.configure do |config|
   config.include Omniauth::Mock

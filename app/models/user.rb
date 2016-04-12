@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
-    if User.count == 0
-      self.role ||= :admin
-    else
-      self.role ||= :user
-    end
+    self.role ||= if User.count == 0
+                    :admin
+                  else
+                    :user
+                  end
   end
 
   def tvs
@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      user.name = auth['info']['name'] || '' if auth['info']
-      user.email = auth['info']['email']
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"] || "" if auth["info"]
+      user.email = auth["info"]["email"]
     end
   end
 

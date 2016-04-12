@@ -16,10 +16,10 @@ class Tv < Resource
   end
 
   def seasons_since(season_number, limit = nil, sort: :asc)
-    season_numbers_since = season_numbers.reject { |number| number < season_number  }
+    season_numbers_since = season_numbers.reject { |number| number < season_number }
     season_numbers_since = season_numbers_since[0..(limit - 1)] if limit.present?
     seasons = season_numbers_since.map { |season_number| Season.find(id, season_number) }
-    seasons.sort_by!{ |e| - e.season_number } if sort == :desc
+    seasons.sort_by! { |e| - e.season_number } if sort == :desc
     seasons
   end
 
@@ -39,7 +39,7 @@ class Tv < Resource
   end
 
   def last_season
-    Season.find(id, seasons_summary.last['season_number'])
+    Season.find(id, seasons_summary.last["season_number"])
   end
 
   def last_episode
@@ -47,7 +47,7 @@ class Tv < Resource
   end
 
   def season_numbers
-    seasons_summary.map { |season_summary| season_summary['season_number'] }
+    seasons_summary.map { |season_summary| season_summary["season_number"] }
   end
 
   def seasons=(seasons_summary)

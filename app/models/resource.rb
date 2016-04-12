@@ -1,6 +1,6 @@
 class Resource
   def self.build(data)
-    fail data['status_message'] if data.key?('status_code')
+    fail data["status_message"] if data.key?("status_code")
     object = new
     data.each do |method_name, value|
       send(:attr_accessor, method_name) unless method_defined?(method_name)

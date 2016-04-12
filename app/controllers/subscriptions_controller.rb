@@ -1,8 +1,7 @@
 class SubscriptionsController < ApplicationController
-
   def create
     if current_user.subscriptions.find_by(resource_id: params[:resource_id]).present?
-      redirect_to :back, alert: 'Already in Your resources.'
+      redirect_to :back, alert: "Already in Your resources."
     else
       Subscription.find_or_create_by(
         user_id: current_user.id,
@@ -10,7 +9,7 @@ class SubscriptionsController < ApplicationController
         episode_number: 1,
         season_number: 1
       )
-      redirect_to :back, notice: 'Resource has been added'
+      redirect_to :back, notice: "Resource has been added"
     end
   end
 
@@ -32,6 +31,6 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     current_user.subscriptions.find_by(resource_id: params[:id]).destroy
-    redirect_to :back, notice: 'Resource has been succesfully removed from your subscriptions'
+    redirect_to :back, notice: "Resource has been succesfully removed from your subscriptions"
   end
 end

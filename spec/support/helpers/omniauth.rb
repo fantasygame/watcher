@@ -2,15 +2,15 @@ module Omniauth
   module Mock
     def auth_mock
       OmniAuth.config.mock_auth[:twitter] = {
-        'provider' => 'twitter',
-        'uid' => '123545',
-        'info' => {
-          'name' => 'mockuser',
-          'email' => 'mockuser'
+        "provider" => "twitter",
+        "uid" => "123545",
+        "info" => {
+          "name" => "mockuser",
+          "email" => "mockuser"
         },
-        'credentials' => {
-          'token' => 'mock_token',
-          'secret' => 'mock_secret'
+        "credentials" => {
+          "token" => "mock_token",
+          "secret" => "mock_secret"
         }
       }
     end
