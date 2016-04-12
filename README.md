@@ -3,7 +3,6 @@
 
 [![](http://img.shields.io/travis/fantasygame/watcher.svg?style=flat-square)](https://travis-ci.org/fantasygame/watcher)
 [![](http://img.shields.io/codeclimate/github/fantasygame/watcher.svg?style=flat-square)](https://codeclimate.com/github/fantasygame/watcher)
-[![](http://img.shields.io/codeclimate/coverage/github/fantasygame/watcher.svg?style=flat-square)](https://codeclimate.com/github/fantasygame/watcher)
 
 ## [Check out our app](http://thewatcher.herokuapp.com/)
 
