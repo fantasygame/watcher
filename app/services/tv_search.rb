@@ -7,7 +7,7 @@ class TvSearch
 
   def call
     search = Tmdb::Search.new
-    search.resource('tv')
+    search.resource("tv")
     search.query(name)
     results = search.fetch
     results.map { |result| Tv.build(result) }

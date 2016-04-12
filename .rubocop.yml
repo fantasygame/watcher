@@ -9,6 +9,8 @@ AllCops:
     - "vendor/*"
     - "bin/*"
     - "Guardfile"
+    - "config/environments/*"
+    - "config/initializers/*"
   UseCache: false
 Style/FrozenStringLiteralComment:
   Enabled: false

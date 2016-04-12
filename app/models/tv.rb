@@ -18,7 +18,7 @@ class Tv < Resource
   def seasons_since(season_number, limit = nil, sort: :asc)
     season_numbers_since = season_numbers.reject { |number| number < season_number }
     season_numbers_since = season_numbers_since[0..(limit - 1)] if limit.present?
-    seasons = season_numbers_since.map { |season_number| Season.find(id, season_number) }
+    seasons = season_numbers_since.map { |number| Season.find(id, number) }
     seasons.sort_by! { |e| - e.season_number } if sort == :desc
     seasons
   end

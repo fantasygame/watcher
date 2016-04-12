@@ -22,7 +22,10 @@ class SubscriptionsController < ApplicationController
       episode_number: params[:episode_number],
       season_number: params[:season_number]
     )
-    render json: { season_number: params[:season_number], episode_number: params[:episode_number] }, status: 200
+    render(
+      json: { season_number: params[:season_number], episode_number: params[:episode_number] },
+      status: 200
+    )
   end
 
   def index
