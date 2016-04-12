@@ -15,8 +15,10 @@ class EpisodesToSee
       next if subscription.finished?
       tv.seasons_since(subscription.season_number, 2).each do |season|
         episodes = season.episodes
-        episodes.reject! do |episode|
-          episode.episode_number <= subscription.episode_number || future_episode?(episode)
+        unless season.season_number > subscription.season_number
+          episodes.reject! do |episode|
+            episode.episode_number <= subscription.episode_number || future_episode?(episode)
+          end
         end
         unless episodes.empty?
           results[tv] = {} unless results.key?(tv)
