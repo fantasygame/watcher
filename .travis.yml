@@ -1,0 +1,17 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.3.0
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database watcher_test;' -U postgres
+  - bundle exec rake db:migrate --trace
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZNji8dgWUHORtOTMrbbts2wzoIQMDdmz2SX1giceUISiCsQL8SSrZxSqoRduJpGFFBODbCsSMl+4rP5Sn3RSqNkyCTNaXa7+lgUmyKKZka5T8eBgWqfQrG2ti8U7GAKr9a3Yij1o0WQAr6JQg9uddsZZaTikPwJrv8vbqZwgaVGCxGkJPC8qCpHnUp2efaw9FQkDMSMoMt9mzoMW04lpNuSUZdlnIKUhrQ1Z0W4wiUTsqMxQNh1jRmNAX6Qaolkop+fVj+Y/l032zcjdZjcyGm4gAedgpuaUA4JmCXlpLlpVO89i531NoXjm79i/C6xbW4MU7muGCaOwgIYJopGEffyFwKXrNCEAO6XLAmL5O3QfSZ95W2iUGaSLDvmIeTHNgawsGn/kd/BBc2yCkR+8OKkhig/JpTC/o7rwjC8IqoYfkBFB1uoPIFU+ByIPfgJi1E5pn27sLSeF5Ga8fppByhiCKNZmB8rXOtYrqX4iO0Tkp0vtsqa42X25LySD3qHybDOc86Qm3TT94M5yMsukicDGrUypGNMPqQRefaN8y0VMD1lvgt5TGZjFppxylGe9P/EfQJJZedmEvl2nthyzy1oRXH2l10sYbKxeZ7bpv0USfKbijVplUSoMcPBciGzRht0WZV20Sd16QSOpi2pITeOoICPj4l0OJ1PskZkYS28=
+  app: thewatcher
+  on:
+    branch: production
+    repo: fantasygame/watcher
+  run: rake db:migrate
