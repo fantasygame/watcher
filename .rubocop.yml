@@ -1,6 +1,7 @@
 require: rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - "vendor/**/*"
     - "db/schema.rb"
@@ -9,6 +10,8 @@ AllCops:
     - "bin/*"
     - "Guardfile"
   UseCache: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
 Style/CollectionMethods:
   Description: Preferred collection methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size
