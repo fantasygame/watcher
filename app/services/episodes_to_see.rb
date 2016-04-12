@@ -1,5 +1,6 @@
 class EpisodesToSee
   attr_reader :user
+  MAX_SEASONS = 2
 
   def initialize(user, tvs = [])
     @user = user
@@ -13,7 +14,7 @@ class EpisodesToSee
       subscription = user.subscriptions.find_by(resource_id: tv.id)
       subscription ||= Struct(season_number: 1, episode_number: 0, finished?: false)
       next if subscription.finished?
-      tv.seasons_since(subscription.season_number, 2).each do |season|
+      tv.seasons_since(subscription.season_number, MAX_SEASONS).each do |season|
         episodes = season.episodes
         unless season.season_number > subscription.season_number
           episodes.reject! do |episode|
