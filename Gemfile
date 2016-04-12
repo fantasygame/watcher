@@ -11,7 +11,6 @@ gem 'font-awesome-rails'
 gem 'source-sans-pro-rails'
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 gem 'bootstrap-sass'
@@ -24,6 +23,7 @@ gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', platform: :ruby
 group :development do
+  gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
