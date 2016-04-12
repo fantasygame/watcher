@@ -21,7 +21,7 @@ module Omniauth
       visit root_path
       expect(page).to have_content("Sign in")
       auth_mock
-      click_link "Sign in"
+      first(:link, "Sign in").click
     end
   end
 end
