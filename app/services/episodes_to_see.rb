@@ -18,9 +18,10 @@ class EpisodesToSee
         episodes = season.episodes
         unless season.season_number > subscription.season_number
           episodes.reject! do |episode|
-            episode.episode_number <= subscription.episode_number || future_episode?(episode)
+            episode.episode_number <= subscription.episode_number
           end
         end
+        episodes.reject! { |episode| future_episode?(episode) }
         unless episodes.empty?
           results[tv] = {} unless results.key?(tv)
           results[tv][season] = episodes
