@@ -5,7 +5,6 @@
         %i.fa{ class: (seen ? 'fa-eye-slash' : 'fa-eye') }
   %td.text-nowrap
     %span.season-marker
-      = render partial: 'torrent_link', locals: { episode: episode, tv_name: tv.name, type: :kickass }
       = render partial: 'torrent_link', locals: { episode: episode, tv_name: tv.name, type: :thepiratebay }
       = episode.episode_marker(tv.name)
   %td.text-nowrap

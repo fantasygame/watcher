@@ -15,8 +15,6 @@ class Episode < Resource
 
   def base_torrent_link(type)
     case type
-    when :kickass
-      "https://kat.cr/usearch"
     when :thepiratebay
       "https://thepiratebay.se/search"
     else
