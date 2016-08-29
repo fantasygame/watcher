@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby "2.3.1"
-gem "rails", "4.2.6"
+gem "rails", "5.0.0.1"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
@@ -8,7 +8,6 @@ gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
 gem "themoviedb"
 gem "font-awesome-rails"
-gem "source-sans-pro-rails"
 group :development, :test do
   gem "byebug"
   gem "spring"
@@ -23,13 +22,12 @@ gem "pundit"
 gem "simple_form"
 gem "therubyracer", platform: :ruby
 group :development do
-  gem "web-console", "~> 2.0"
+  gem "web-console"
   gem "better_errors"
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-rspec"
   gem "html2haml"
-  gem "quiet_assets"
   gem "rails_layout"
   gem "rb-fchange", require: false
   gem "rb-fsevent", require: false
