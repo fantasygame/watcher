@@ -1,3 +1,3 @@
-class View < ActiveRecord::Base
+class View < ApplicationRecord
   belongs_to :user
 end

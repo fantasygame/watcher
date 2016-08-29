@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :subscriptions
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, if: :new_record?
