@@ -17,8 +17,8 @@ App uses moviedb to show new episodes to watch and their description.
 
 ## Technologies
 
-* Ruby on Rails 4.2.6
-* Ruby 2.3.0
+* Ruby on Rails 5.0.0.1
+* Ruby 2.3.1
 * Postgresql
 * HAML
 * Bootstrap 3
