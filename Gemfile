@@ -8,6 +8,7 @@ gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
 gem "themoviedb"
 gem "font-awesome-rails"
+gem "devise"
 group :development, :test do
   gem "byebug"
   gem "spring"
