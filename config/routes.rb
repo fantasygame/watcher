@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  devise_for :users
+  root to: "visitors#index"
   resources :tvs, only: [:index, :show] do
     resources :seasons, only: [:show]
     resources :episodes, only: [:index]
