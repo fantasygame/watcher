@@ -42,6 +42,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "rubocop-rspec"
+  gem "letter_opener"
 end
 group :production do
   gem "rails_12factor"
