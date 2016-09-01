@@ -22,7 +22,7 @@ App uses moviedb to show new episodes to watch and their description.
 * Postgresql
 * HAML
 * Bootstrap 3
-* Omniauth authentication
+* Devise authentication
 * Pundit authorization
 * Continous deployment with Travis and Heroku
 * Code Climate quality check
