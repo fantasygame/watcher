@@ -15,8 +15,6 @@ end
 gem "bootstrap-sass"
 gem "figaro"
 gem "haml-rails"
-gem "omniauth"
-gem "omniauth-google-oauth2"
 gem "pg"
 gem "pundit"
 gem "simple_form"

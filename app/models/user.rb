@@ -15,15 +15,6 @@ class User < ApplicationRecord
     subscriptions.map(&:resource)
   end
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"] || "" if auth["info"]
-      user.email = auth["info"]["email"]
-    end
-  end
-
   def subscribed?(resource_id)
     subscriptions.map(&:resource_id).include?(resource_id)
   end
