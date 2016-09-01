@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
-  get "/auth/:provider/callback" => 'sessions#create'
-  get "/signin" => 'sessions#new', :as => :signin
-  get "/signout" => 'sessions#destroy', :as => :signout
-  get "/auth/failure" => 'sessions#failure'
+  devise_for :users
+  root to: "visitors#index"
   resources :tvs, only: [:index, :show] do
     resources :seasons, only: [:show]
     resources :episodes, only: [:index]

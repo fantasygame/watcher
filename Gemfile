@@ -8,6 +8,7 @@ gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
 gem "themoviedb"
 gem "font-awesome-rails"
+gem "devise"
 group :development, :test do
   gem "byebug"
   gem "spring"
@@ -15,8 +16,6 @@ end
 gem "bootstrap-sass"
 gem "figaro"
 gem "haml-rails"
-gem "omniauth"
-gem "omniauth-google-oauth2"
 gem "pg"
 gem "pundit"
 gem "simple_form"
@@ -43,6 +42,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "rubocop-rspec"
+  gem "letter_opener"
 end
 group :production do
   gem "rails_12factor"

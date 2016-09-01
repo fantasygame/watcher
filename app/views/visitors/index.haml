@@ -7,7 +7,7 @@
       - if user_signed_in?
         %p= render 'tv_search_form'
       - else
-        %a.btn.btn-dark.btn-lg{href: signin_path} Sign in
+        %a.btn.btn-dark.btn-lg{ href: new_user_session_path } Sign in
 / About
 %div#about.about
   .container

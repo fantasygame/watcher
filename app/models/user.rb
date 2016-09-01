@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   has_many :subscriptions
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, if: :new_record?
@@ -13,15 +17,6 @@ class User < ApplicationRecord
 
   def tvs
     subscriptions.map(&:resource)
-  end
-
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"] || "" if auth["info"]
-      user.email = auth["info"]["email"]
-    end
   end
 
   def subscribed?(resource_id)
